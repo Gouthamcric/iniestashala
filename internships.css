@@ -1,0 +1,27 @@
+.left {
+    text-align: right;
+    margin-top: 2%;
+}
+.center {
+    text-align: center;
+}
+
+.middle {
+    text-align: center;
+    margin-top: 2%;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: left;
+    margin-top: 2%;
+}
+.subscribe-btn {
+    margin-top: 2%;
+    font-size: small;
+}
+.jumbotron {
+    padding-top: 3%;
+    padding-bottom: 10%;
+}

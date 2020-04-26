@@ -1,0 +1,108 @@
+body {
+    text-align: center;
+    margin: 0;
+}
+
+.navbar-nav {
+    margin-right: 35%;
+}
+
+.internships, .trainings {
+    margin: 0 15%;
+}
+
+.right-margin {
+    margin-right: 10px;
+}
+
+/* .carousel {
+    padding: 7% 14%;
+    background-image: url("images/topBackground1.jpg");
+    margin-top: 10%;
+} */
+
+.top-container {
+    padding: 5% 0;
+}
+
+.carousel-item {
+    padding: 3% 18%;
+}
+
+.black-icon {
+    filter: invert(100%);
+}
+
+.grey-card {
+    color: aliceblue;
+    background-color: grey;
+    margin: 1%;
+}
+
+.body-1, .body-2 {
+    padding: 2% 7%;
+}
+
+.body-3 {
+    padding: 2% 15%;
+}
+
+.card-title a {
+    color: honeydew;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1%;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.col-lg-3 a, .col-lg-6 a, td a {
+    color: black;
+}
+
+td a {
+    font-size: smaller;
+}
+
+.col-lg-3 a:hover, .col-lg-6 a:hover, .white-text a:hover, td a:hover {
+    text-decoration: none;
+}
+
+.col-md-4 img {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.footer {
+    padding: 4%;
+}
+
+.footer, .white-text {
+    background-color: #323232;
+    color: white;
+}
+
+.white-text a {
+    color: white;
+}
+
+/* 1000 */
+
+@media (max-width: 720px) {
+    .internships, .trainings {
+        margin: 1%;
+    }
+    .dropdown-menu {
+        width: 100%;
+    }
+    .x-small {
+        font-size: xx-small;
+        max-width:100% !important;
+    }
+
+}
