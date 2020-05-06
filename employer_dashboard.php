@@ -63,6 +63,39 @@ else
 
 
     <div class="tab-content" id="pills-tabContent">
+       
+               <!---------------------------------------- dashboard ------------------------------->
+                <div class="tab-pane fade " id="dashboard" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="container-fluid">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <table class="table table-striped text-left">
+                            <thead>
+                              <tr>
+                                <th scope="col">Profile</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Deep Learning</td>
+                                <td class="text-primary">Under Review</td>
+                                <td>...</td>
+                              </tr>
+                              <tr>
+                                <td>Machine Learning</td>
+                                <td class="text-primary">Under Review</td>
+                                <td>...</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of dashboard -->
+       
         <div class="tab-pane fade " id="dashboard" role="tabpanel" aria-labelledby="pills-home-tab">Dashboard</div>
         <div class="tab-pane fade show active" id="post-internship" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="container">
