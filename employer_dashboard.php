@@ -15,7 +15,26 @@ else
             echo "Your session has expired! <a href='index.php'>sign up here</a>";
 }
         else {
-?>
+        $con= mysqli_connect("localhost", "root", "", "db");
+        $querry='select * from data where owner="'.$_SESSION['id'].'"';
+        $res= mysqli_query($con, $querry);
+        $i=0;
+        $job_ids="";
+        $count= mysqli_num_rows($res);
+        while($i!=$count){
+        $out= mysqli_fetch_array($res);
+        if($job_ids!=""){
+        $job_ids=$job_ids.",".$out['id'];}
+        else{ $job_ids=$job_ids."".$out['id']; }
+        $i++;
+        
+        }
+        $con2= mysqli_connect("localhost", "root", "", "db");
+        $querry2='SELECT * FROM `application` WHERE company_id in('.$job_ids.')';
+        $res2= mysqli_query($con, $querry2); 
+        $res3= mysqli_query($con, $querry2);
+        $count2=mysqli_num_rows($res2);
+        ?>
 <html lang="en">
 
 <head>
@@ -63,8 +82,7 @@ else
 
 
     <div class="tab-content" id="pills-tabContent">
-       
-               <!---------------------------------------- dashboard ------------------------------->
+        <!---------------------------------------- dashboard ------------------------------->
                 <div class="tab-pane fade " id="dashboard" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="container-fluid">
                 <div class="row justify-content-md-center">
@@ -72,22 +90,30 @@ else
                         <table class="table table-striped text-left">
                             <thead>
                               <tr>
-                                <th scope="col">Profile</th>
+                                <th scope="col">Applicant id</th>
+                                
                                 <th scope="col">Status</th>
+                                <th scope="col">Application</th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
                             <tbody>
+                        <?php $k=0;$j=0;while($j!=$count2){
+                            $out2= mysqli_fetch_array($res2);?>        
                               <tr>
-                                <td>Deep Learning</td>
-                                <td class="text-primary">Under Review</td>
-                                <td>...</td>
+                                <td><?php echo $out2['applicant_id']; ?></td>
+                                
+                                <td class="text-primary" id="<?php echo "status".$j; ?>"><?php echo $out2['app_status'] ?></td>
+                                <td><a href="application.php?applicant_id=<?php echo $out2['applicant_id']; ?>">view application</a></td>
+                                <td class="text-primary">                       
+                       <select id="<?php echo "action".$j; ?>" name="action"  class="form-control"  onchange="action()">
+                           <option disabled="true"  value="not viewed">Not viewed</option>
+                           <option value="selected">selected</option>
+                           <option value="under review">under review</option>
+                           <option value="rejected">rejected</option>
+                       </select></td>
                               </tr>
-                              <tr>
-                                <td>Machine Learning</td>
-                                <td class="text-primary">Under Review</td>
-                                <td>...</td>
-                              </tr>
+                        <?php $j++;} ?>
                             </tbody>
                           </table>
                     </div>
@@ -95,7 +121,7 @@ else
             </div>
         </div>
         <!--end of dashboard -->
-       
+        
         <div class="tab-pane fade " id="dashboard" role="tabpanel" aria-labelledby="pills-home-tab">Dashboard</div>
         <div class="tab-pane fade show active" id="post-internship" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="container">
@@ -300,7 +326,7 @@ else
                             <p>Question 1 and 2 will be asked to every applicant by default. If you wish you may ask two
                                 more customised questions</p>
                             <p><b>Question 1:</b> Why should you be hired for this role?</p>
-                            <p><b>Question 2:</b> Are you available for 1 month starting immediately, for a full time
+                            <p><b>Question 2:</b> Are you available for given month(s) starting immediately, for a full time
                                 internship?</p>
                             <div id="q"></div>
                             
@@ -321,6 +347,28 @@ else
 
 
  <script>
+     function action()
+ {
+    
+      <?php while($k!=$count2){ $out3= mysqli_fetch_array($res3); ?>
+              var x = document.getElementById("<?php echo "action".$k;?>").value;
+              
+    var y = document.getElementById("<?php echo "status".$k;?>");
+  
+  y.innerHTML = x;
+        $.ajax({
+            
+            url:"update_status.php",
+            method:"POST",
+            data:{status:x,applicant_id:"<?php echo $out3['applicant_id']; ?>",company_id:"<?php echo $out3['company_id']; ?>"},
+            success:function(data)
+            { 
+                
+              //   window.location = "internship_status.php";
+                  }
+        });
+      <?php $k++;} ?>
+ }
      $(document).ready(function(){
  
 $("#other_job").prop("disabled", true);
@@ -586,6 +634,7 @@ function return_city(category)
             {
                   }
         });*/
+
     });
 }
     </script>
