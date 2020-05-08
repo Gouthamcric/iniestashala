@@ -70,7 +70,7 @@ else
                            $n= count($data);
                            
                            if($n>1){
-                               for($i=0;$i<$n-1;$i++){
+                               for($i=0;$i<$n;$i++){
                         ?>
                          <p class="card-text"><b><?php echo $data[$i]; ?></b></p>
                          <textarea class="form-control" name="" id="" cols="50" rows="5"></textarea><br>
