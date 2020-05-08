@@ -1,0 +1,122 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(226, 228, 228);
+}
+
+.mf {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bio {
+    margin: 1% 0px 0.2% 0px;
+    padding: 1% 2% 3% 2%;
+    max-height: 10%;
+    height: 5%;
+    background-color: azure;
+}
+
+.details {
+    float: left;
+}
+
+.time {
+    float: right;
+}
+
+.assesment {
+    background-color: azure;
+    text-align: left;
+    margin: 0px 0px 0.2% 0px;
+    padding: 2%;
+}
+
+.qna {
+    text-align: left;
+    margin: 1%;
+    padding: 2%;
+}
+
+.resume {
+    background-color: azure;
+    padding: 2%;
+    margin: 0px 0px 0.2% 0px;
+}
+
+.resume>h2 {
+    font-size: x-large;
+    margin-bottom: 4%;
+}
+
+.property {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.properties {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+.type {
+    flex: 3;
+    font-weight: bold;
+}
+
+.description {
+    flex: 6;
+    text-align: left;
+}
+
+.description>p {
+    margin-bottom: 2%;
+}
+.description>li{
+    padding: 1% 0px;
+}
+
+.skills {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+}
+
+.d1, .d2 {
+    flex: 3;
+    text-align: left;
+    margin-bottom: 5%;
+}
+
+.add-info {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+.contact {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+.add {
+    color: rgb(59, 110, 219);
+    text-align: center;
+    text-align: left; margin: 4% 15% 4% 4%;
+}
+a{
+    text-decoration: none;
+}
+.descr>p{
+    margin-left: 5%;
+}
