@@ -17,6 +17,14 @@ $query3="select * from application";
 $res3=  mysqli_query($con, $query3);
 $count3= mysqli_num_rows($res3);
 $i3=0;
+$query4="select * from cities";
+$res4=  mysqli_query($con, $query4);
+$count4= mysqli_num_rows($res4);
+$i4=0;
+$query5="select * from category";
+$res5=  mysqli_query($con, $query5);
+$count5= mysqli_num_rows($res5);
+$i5=0;
 ?>
 
 <html lang="en">
@@ -107,6 +115,10 @@ $i3=0;
                     aria-controls="nav-profile" aria-selected="false">Users</a>
                 <a class="nav-item nav-link" id="nav-status-tab" data-toggle="tab" href="#nav-status" role="tab"
                     aria-controls="nav-contact" aria-selected="false">Application Status</a>
+                <a class="nav-item nav-link" id="nav-city-tab" data-toggle="tab" href="#nav-city" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">cities</a>
+                                <a class="nav-item nav-link" id="nav-category-tab" data-toggle="tab" href="#nav-category" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">category</a>
             </div>
         </nav>
     </div>
@@ -362,6 +374,68 @@ $i3=0;
                 </tbody>
             </table>
         </div>
+                <!------------------------------------------- cities ------------------------------------------------------->
+        <div class="tab-pane fade mt-2 ml-1 mr-1" id="nav-city" role="tabpanel" aria-labelledby="nav-city-tab">
+            <table class="mr-auto ml-auto mt-4">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>city_name</th>
+                        <th>state_name</th>
+
+
+                    </tr>
+                </thead>
+                <tbody id="city_table">
+                    <tr id="add">
+                        <td><button href="" class="city_add"  data-id="add"><i class="fa fa-plus" aria-hidden="true"></i></button></td>
+                        <td><input type="text" id="city_name" /> </td>
+                        <td><input type="text" id="state_name" /> </td>
+                    </tr>
+                    <?php while($i4!=$count4){$out4= mysqli_fetch_array($res4)or die(mysqli_errno($con)); ?>
+                    <tr id="<?php echo 'city_row'.$out4['city_id']; ?>">
+                        <td><button href="" class="city_delete"  data-id="<?php echo $out4['city_id']; ?>"><i class="fas fa-trash-alt fa-2x"></i></button></td>
+                        <td><?php echo $out4['city_name']; ?></td>
+                        <td><?php echo $out4['city_state']; ?></td>
+
+
+                    </tr>
+                    
+                    <?php $i4++;} ?>
+                </tbody>
+            </table>
+        </div>
+                                <!------------------------------------------- categories ------------------------------------------------------->
+        <div class="tab-pane fade mt-2 ml-1 mr-1" id="nav-category" role="tabpanel" aria-labelledby="nav-category-tab">
+            <table class="mr-auto ml-auto mt-4">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>category</th>
+                      
+
+
+                    </tr>
+                </thead>
+                <tbody id="category_table">
+                    <tr id="category_add">
+                        <td><button href="" class="category_add"  data-id="category_add"><i class="fa fa-plus" aria-hidden="true"></i></button></td>
+                        <td><input type="text" id="category" /> </td>
+                  
+                    </tr>
+                    <?php while($i5!=$count5){$out5= mysqli_fetch_array($res5)or die(mysqli_errno($con)); ?>
+                    <tr id="<?php echo 'category_row'.$out5['category_id']; ?>">
+                        <td><button href="" class="city_delete"  data-id="<?php echo $out5['category_id']; ?>"><i class="fas fa-trash-alt fa-2x"></i></button></td>
+                        <td><?php echo $out5['category']; ?></td>
+                      
+
+
+                    </tr>
+                    
+                    <?php $i5++;} ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
@@ -460,7 +534,80 @@ var id = $(this).data('id');
    data:{id:id},
    success:function(data)
    { alert("deleted sucessfully");
-       $("#application_row"+id).remove();
+       $("#application_row").remove();
+   }
+  });
+
+   });
+   
+
+      $(document).on('click', '.city_delete', function(){
+var id = $(this).data('id');
+
+  $.ajax({
+   url:"delete_city_data.php",
+   method:"POST",
+   data:{id:id},
+   success:function(data)
+   { alert("deleted sucessfully");
+       $("#city_row"+id).remove();
+   }
+  });
+
+   });
+      $(document).on('click', '.city_add', function(){
+
+                   var city_name=document.getElementById("city_name").value;
+          var state_name=document.getElementById("state_name").value; 
+             
+
+  $.ajax({
+   url:"add_city_data.php",
+   method:"POST",
+   data:{city_name:city_name,state_name:state_name},
+   success:function(data)
+   { alert("sucessfully added !"+data);
+  
+         var      markup = "<tr id=city_row"+data+">"+ '<td><button href="" class="city_delete"  data-id='+data+'><i class="fas fa-trash-alt fa-2x"></i></button></td>'+"<td>"+city_name+"</td><td>"+state_name+"</td></tr>"; 
+           var     tableBody = $("#city_table"); 
+                $("#add").remove();
+                tableBody.prepend(markup);
+                tableBody.prepend('<tr id="add">'+' <td><button href="" class="city_add"  data-id="add"><i class="fa fa-plus" aria-hidden="true"></i></button></td>' +'<td><input type="text" id="city_name" /> </td>'
+                        +' <td><input type="text" id="state_name" /> </td>');
+   }
+  });});
+        $(document).on('click', '.category_delete', function(){
+var id = $(this).data('id');
+
+  $.ajax({
+   url:"delete_category_data.php",
+   method:"POST",
+   data:{id:id},
+   success:function(data)
+   { alert("deleted sucessfully");
+       $("#category_row"+id).remove();
+   }
+  });
+
+   });
+      $(document).on('click', '.category_add', function(){
+
+                   var category=document.getElementById("category").value;
+    
+             
+
+  $.ajax({
+   url:"add_category_data.php",
+   method:"POST",
+   data:{category:category},
+   success:function(data)
+   { alert("sucessfully added !");
+  
+         var      markup = "<tr id=category_row"+data+">"+ '<td><button href="" class="category_delete"  data-id='+data+'><i class="fas fa-trash-alt fa-2x"></i></button></td>'+"<td>"+category+"</td>"; 
+           var     tableBody = $("#category_table"); 
+                $("#category_add").remove();
+                tableBody.prepend(markup);
+                tableBody.prepend('<tr id="category_add">'+' <td><button href="" class="category_add"  data-id="add"><i class="fa fa-plus" aria-hidden="true"></i></button></td>' +'<td><input type="text" id="category" /> </td>' );
    }
   });
 
