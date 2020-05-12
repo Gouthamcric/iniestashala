@@ -2,8 +2,8 @@
 <?php
 if(isset($_POST['email'])){
     session_start();
-    $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
-
+   // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+include("connection.php");
    
         $first_name=$_POST['first_name'];
         $last_name=$_POST['last_name'];

@@ -1,4 +1,5 @@
 <?php
+include("connection.php");
 session_start();
 if(!isset($_SESSION['id'])){
    
@@ -15,7 +16,7 @@ else
             echo "Your session has expired! <a href='index.php'>sign up here</a>";
 }
         else {
-        $con= mysqli_connect("localhost", "root", "", "db");
+      //  $con= mysqli_connect("localhost", "root", "", "db");
         $querry='select * from data where owner="'.$_SESSION['id'].'"';
         $res= mysqli_query($con, $querry);
         $i=0;
@@ -29,11 +30,13 @@ else
         $i++;
         
         }
-        $con2= mysqli_connect("localhost", "root", "", "db");
+   //     $con2= mysqli_connect("localhost", "root", "", "db");
         $querry2='SELECT * FROM `application` WHERE company_id in('.$job_ids.')';
         $res2= mysqli_query($con, $querry2); 
         $res3= mysqli_query($con, $querry2);
-        $count2=mysqli_num_rows($res2);
+        if($job_ids==""){$count2=0;}
+        else{
+        $count2=mysqli_num_rows($res2);}
         ?>
 <html lang="en">
 
@@ -611,8 +614,8 @@ function return_city(category)
    }
       function ajaxCallBack2(city,category){
          var questions=ques.toString();
-    alert(responsibility);
-    alert(questions);
+   // alert(responsibility);
+   // alert(questions);
         $.ajax({
             url:"insert_internship.php",
             method:"POST",

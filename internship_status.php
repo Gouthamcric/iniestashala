@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-
+include("connection.php");
 //$company_id='2';
 session_start();
 if(!isset($_SESSION['id'])){
@@ -18,7 +18,7 @@ else
             echo "Your session has expired! <a href='registerStudent.php'>sign up here</a>";
 }
         else {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+    //    $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         
         $querry2='select * from application where applicant_id="'.$_SESSION['id'].'"';
         $res2= mysqli_query($con, $querry2)or die(mysqli_errno($con));
@@ -48,9 +48,7 @@ else
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292b2c;">
-        <a class="navbar-brand" style="font-size:x-large;" href="index.html"><i class="fab fa-invision"></i> INIESTASHALA</a>
-    </nav>
+<?php include("header.php"); ?>
     <!-- navbar end -->
     <br>
 

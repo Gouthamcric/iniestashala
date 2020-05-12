@@ -4,6 +4,11 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+session_start();
+
+include("connection.php");
+$query='insert into subscription(email) values ("'.$_POST["email"].'")';
+$res=  mysqli_query($con, $query);
  $mail = new PHPMailer;
  $mail->IsSMTP();       
  $mail->Host = 'tls://smtp.gmail.com:587';   

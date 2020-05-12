@@ -1,34 +1,37 @@
-<!doctype html>
 <?php
 if(isset($_POST['email'])){
     session_start();
-   // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
-include("connection.php");
+    include("connection.php");
+ //   $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+
    
-        $first_name=$_POST['first_name'];
-        $first_name=$_POST['last_name'];
-        $phone=$_POST['phone'];
         $email=$_POST['email'];
         $password=$_POST['password'];
-        $querry="select * from users";
+        $querry="select * from admin";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $count= mysqli_num_rows($res);
       $i=0;
+      $f=1;
         if($count!=0){
         while($i<$count)
         {   $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
-       //checks if user is already registered 
-            if($email==$out['email'])
-        {       header('location: registerEmployer.php?msg=email already exist'); 
-       
+            if($email==$out['email'] && $password==$out['password'])
+        {    $f=0;
+       break;
         }
      $i++;
         }}
-        $querry='insert into users(first_name,last_name,phone,email,password,is_employer) values("'.$first_name.'","'.$last_name.'","'.$phone.'","'.$email.'","'.$password.'",True)';
-        $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
-header('location: login.php?msg=successfully signed up');}
+       if($f==0){
+
+        $_SESSION['id']= $email;
+
+header('location: admin_panel.php');   
+        }
+else{header('location: admin_login.php?msg=Incorrect Credential');}
+       }
         
 ?>
+
 <html lang="en">
 
 <head>
@@ -37,7 +40,7 @@ header('location: login.php?msg=successfully signed up');}
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Register as Employer</title>
+    <title>Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 
@@ -82,20 +85,19 @@ header('location: login.php?msg=successfully signed up');}
     <form class="form-signin" method="post">
         <!-- <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <i class="fab fa-invision fa-3x"></i>
-        <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
-        <input type="text"  class="form-control" placeholder="First Name" required autofocus id="first_name" name="first_name">
-        <input type="test"  class="form-control" placeholder="Last Name" required id="last_name" name="last_name">
-        <input type="tel" class="form-control" placeholder="10 digit Phone number" required id="phone" name="phone">
-        <input type="email" class="form-control" placeholder="Official Email id" required id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="the username, the @ symbol, and the user's domain name">
-        <input type="password" class="form-control" placeholder="Password" required id="password" name="password" pattern=".{6,}" title="password should be minimum of 6 characters">
+        <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="userame" required autofocus id="email" name="email" >
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required id="password" name="password" pattern=".{6,}" title="password should be minimum of 6 characters" >
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        <a href="login.php">Already have an account ? Log in ></a>
-           <?php if(isset($_GET['msg'])){ echo '<br><p style="color:red">*'.$_GET['msg'].'*</p>';} ?>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+        <a href="index.php"> Go Back ></a>
+        <?php if(isset($_GET['msg'])){ echo '<br><p style="color:red">*'.$_GET['msg'].'*</p>';} ?>
         <p class="mt-5 mb-3 text-muted">&copy; Iniestashala 2020</p>
     </form>
 </body>

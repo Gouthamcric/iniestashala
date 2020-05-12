@@ -1,4 +1,5 @@
 <?php
+include("connection.php");
 $company_id=$_GET['company_id'];
 //$company_id='2';
 session_start();
@@ -17,7 +18,7 @@ else
             echo "Your session has expired! <a href='registerStudent.php'>sign up here</a>";
 }
         else {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+        //$con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry='select * from data where id='.$company_id.'';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
@@ -64,7 +65,7 @@ else
                         <p class="card-text"><b>Why should you be hired for this role?</b></p>
                         <textarea class="form-control" name="" id="" cols="50" rows="5"></textarea><br>
                         <p class="card-text"><b>Are you available next <?php echo $out['duration']." months"; ?></b></p>
-                        <textarea class="form-control" name="" id="" cols="50" rows="5"></textarea><br>
+                        <textarea class="form-control" name="" id="" cols="50" rows="5" required></textarea><br>
                         <?php
                            $data = explode (",", $out['questions']);
                            $n= count($data);
@@ -73,7 +74,7 @@ else
                                for($i=0;$i<$n;$i++){
                         ?>
                          <p class="card-text"><b><?php echo $data[$i]; ?></b></p>
-                         <textarea class="form-control" name="" id="" cols="50" rows="5"></textarea><br>
+                         <textarea class="form-control" name="" id="" cols="50" rows="5" required></textarea><br>
                            <?php }}?>
                         <div class="text-right">
                             <button  class="btn btn-primary" onclick="submit()">Submit</button>
@@ -88,7 +89,7 @@ else
  <script>
 function submit()
 
-{
+{ var flag=0;
     $(document).ready(function(){
 var answers="";
 $( "textarea" ).each(function( index ) {
@@ -96,7 +97,12 @@ $( "textarea" ).each(function( index ) {
   answers = answers +"," +$( this ).val();}
   else
   {answers = answers+$( this ).val();}
+  if($(this).val()==="")
+{
+flag=1;}
 });
+
+if(flag===0){
         $.ajax({
             
             url:"apply_internship.php",
@@ -108,9 +114,10 @@ $( "textarea" ).each(function( index ) {
                  window.location = "internship_status.php";
                   }
         });
- //   alert(ta);
-     });
-     }
+        }
+        else{alert("kindly answer all the question");}//   alert(ta);
+ });
+ }
  </script>
 
 </html>

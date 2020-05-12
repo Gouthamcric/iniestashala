@@ -2,7 +2,8 @@
 <?php
 if(isset($_POST['email'])){
     session_start();
-    $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+    include("connection.php");
+ //   $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
 
    
         $email=$_POST['email'];
@@ -25,36 +26,43 @@ if(isset($_POST['email'])){
         $querry='select * from users where email="'.$email.'"';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));  
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
+        if($out['approval_status']=="Not Approved"){header('location: login.php?msg=account yet to be verified by admin!');}
+        else{
         if($out['is_employer']==0){
         if($out['city1']==NULL)
         {
         $_SESSION['id']= $email;
+        $_SESSION['username']= $out['first_name'];
         $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (100);  //expires after 100 seconds
+        $_SESSION['expire'] = $_SESSION['start'] + (300);  //expires after 100 seconds
 header('location: personal-details.php');
         }
         else if($out['city_pre_1']==NULL)
         {
         $_SESSION['id']= $email;
+        $_SESSION['username']= $out['first_name'];
         $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (100);  //expires after 100 seconds
+        $_SESSION['expire'] = $_SESSION['start'] + (300);  //expires after 100 seconds
 header('location: internship-preferences.php');
         }
         else
         {
         $_SESSION['id']= $email;
+        $_SESSION['username']= $out['first_name'];
         $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (100);
+        $_SESSION['expire'] = $_SESSION['start'] + (300);
 header('location: internships.php');            
         }
         }
         else
         {
         $_SESSION['id']= $email;
+        $_SESSION['username']= $out['first_name'];
         $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (100);
+        $_SESSION['expire'] = $_SESSION['start'] + (300);
 header('location: employer_dashboard.php');   
         }
+       }
        }
 else{header('location: login.php?msg=Incorrect Credential');}
        }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php 
    function load_cities()
-      {
+      {include("connection.php");
         $opt='';
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+ //       $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry="select * from cities";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $count= mysqli_num_rows($res);
@@ -17,9 +17,9 @@
         return $opt;
       }
      function load_jobs()
-      {
+      {include("connection.php");
         $opt='';
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+   //     $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry="select * from category";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $count= mysqli_num_rows($res);
@@ -33,7 +33,7 @@
         return $opt;
       }
     
-/*session_start();
+session_start();
 if(!isset($_SESSION['id'])){
    
 header('location: login.php?msg=kindly sign in first');
@@ -48,7 +48,8 @@ else
              session_destroy();
             echo "Your session has expired! <a href='index.php'>sign up here</a>";
 }
-        else {*/
+        else {
+           
 ?>
 
 <html lang="en">
@@ -81,14 +82,7 @@ else
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292b2c;">
-        <a class="navbar-brand" style="font-size:x-large;" href="#"><i class="fab fa-invision"></i> INIESTASHALA</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="index.php" class="nav-link"> 🏚Home</a>
-            </li>
-        </ul>
-    </nav>
+<?php include("header.php"); ?>
     <!-- navbar end -->
 
     <!-- body -->
@@ -144,9 +138,10 @@ else
             <div class="col-lg-6 middle">
                 <h4>Internships</h4>
                 <div id="result">
-                <?php         
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
-        $querry="select * from data";
+                <?php    
+                include("connection.php");
+      //  $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+        $querry="select * from data where approval_status='Approved'";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $count= mysqli_num_rows($res);
         $i=0;
@@ -197,15 +192,7 @@ else
             </div>
 </div>
             <!-- right grid -->
-            <div class="col-lg-3 right">
-                <div class="jumbotron">
-                    <h6>Don't miss any opportunity!</h6>
-                    <form>
-                    <input type="text" placeholder="Your email" id="subscribe_mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="the username, the @ symbol, and the user's domain name">
-                    <button class="btn btn-secondary subscribe-btn" href="#" role="button" id="subscribe" onclick="send_email()">Subscribe</button>
-                    </form>
-                </div>
-            </div>
+
         </div>
 
 
@@ -220,25 +207,12 @@ $(document).ready(function(){
 $("#cities").bsMultiSelect();
 $("#jobs").bsMultiSelect();
 
-    
+  show_result();  
 
 
 });
 
-function send_email()
-{alert("your subscription confirmed check your inbox");
-     $(document).ready(function(){
-        var email=document.getElementById("subscribe_mail").value;
-        $.ajax({
-            url:"send_email.php",
-            method:"POST",
-            data:{email:email},
-            success:function(data)
-            {
-                  }
-        });
-    });
-}
+
 
         function show_result()
         {
@@ -294,4 +268,4 @@ function send_email()
 
         
 </body>
-<?php /* }} */?>
+<?php  }} ?>

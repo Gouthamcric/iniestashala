@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php 
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+include("connection.php");
+       // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $id=$_GET['msg'];
         $querry="select * from data where id='$id'";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
@@ -77,7 +78,7 @@
 
                 </div>
                 <div class="card-footer text-muted">
-                    Internship | <?php if($out['job_offer']==1){echo "with job offer";}else{echo  "without job offer";} ?> <a href="">Apply ></a>
+                    Internship | <?php if($out['job_offer']==1){echo "with job offer";}else{echo  "without job offer";} ?> <a href="resume.php?company_id=<?php echo $id;?>">Apply ></a>
                 </div>
             </div>
             <div class="card left blue-h6">
@@ -97,7 +98,7 @@
                     <p><?php echo($out['perks']) ?></p>
                     <br>
                     <div class="text-right">
-                        <button class="btn btn-primary">Appply Now</button>
+                        <a class="btn btn-primary" href="resume.php?company_id=<?php echo $id;?>">Appply Now</a>
                     </div>
                     
 

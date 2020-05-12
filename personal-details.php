@@ -19,9 +19,9 @@ else
 }
         else {
             if(isset($_POST['city1'])){
-    $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+   // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
 
-   
+   include("connection.php");
 
         $city1=$_POST['city1'];
         $city2=$_POST['city2'];
@@ -31,7 +31,8 @@ else
        }
         function first_name()
         {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+include("connection.php");       
+// $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry='select * from users where email="'.$_SESSION['id'].'"';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
@@ -39,7 +40,8 @@ else
         }
           function last_name()
         {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+include("connection.php");
+//                $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry='select * from users where email="'.$_SESSION['id'].'"';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
@@ -47,7 +49,8 @@ else
         }
           function mobile_no()
         {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+        include("connection.php");
+        //$con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry='select * from users where email="'.$_SESSION['id'].'"';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));

@@ -1,5 +1,8 @@
 <?php
-    $company_id=$_GET['company_id'];
+if(isset($_GET['company_id'])){
+$company_id=$_GET['company_id'];}
+else
+{$company_id="not set";}
 session_start();
 if(!isset($_SESSION['id'])){
    
@@ -16,7 +19,8 @@ else
             echo "Your session has expired! <a href='registerStudent.php'>sign up here</a>";
 }
         else {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+            include("connection.php");
+   //     $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry='select * from users where email="'.$_SESSION['id'].'"';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
@@ -217,7 +221,10 @@ else
                         <a id="add-additional-detail" data-toggle="modal"
                             data-target="#additional-detailsModalScrollable">+ Add Additional Details</a>
                     </div>
-                    <a href="evaluation.php?company_id=<?php echo $company_id;?>" class="btn btn-primary">Submit</a>    
+            <?php        if($company_id=="not set"){ echo '<a href="internships.php" class="btn btn-primary" style="color:white;">Submit</a> ';}
+                    else{ 
+                   echo ' <a href="evaluation.php?company_id='.$company_id.'" class="btn btn-primary" style="color:white;">Submit</a> ';   
+                     }?>
                 </div>
             </div>
         </div>

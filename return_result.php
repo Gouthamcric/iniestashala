@@ -2,7 +2,8 @@
 
 if(isset($_POST['city'])){
    $city=$_POST["city"];
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+include("connection.php");       
+// $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry="select city_state from cities where city_name='$city'";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
@@ -24,7 +25,8 @@ if(isset($_POST['city'])){
 }
 else if(isset($_POST['job'])){
    $job=$_POST["job"];
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+include("connection.php");      
+//  $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry="select category from data where job='$job'";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
@@ -70,9 +72,9 @@ $job_offer=$_REQUEST['job_offer'];
 
 //echo($jobs_str.$cities_str.$work_home.$partime.$start_date.$duration.$women_internship.$job_offer);
 
-
-     $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
-     $querry="select * from data where id!=''";
+include("connection.php");
+ //    $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+     $querry="select * from data where id!='' and approval_status='Approved'";
      if($jobs_str!="")
      {$querry.=" and ".$jobs_str;}
      if($cities_str!="")
@@ -135,7 +137,7 @@ $job_offer=$_REQUEST['job_offer'];
 
                     </div>
                     <div class="card-footer text-muted">
-                      Internship | With job offer  <a href="">Apply ></a>
+                      Internship | With job offer  <a href="internship_details.php?msg='.$out['id'].'">Apply ></a>
                     </div>
                   </div>';
         $i++;

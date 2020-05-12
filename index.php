@@ -23,75 +23,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto" style="margin-right: -5px">
 
-                <li class="nav-item dropdown internships">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internships</a>
-                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                        <table class="table table-striped x-small">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Location</th>
-                                    <th scope="col">Profile</th>
-                                    <th scope="col">Category</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="internships.php">Work from home</a></td>
-                                    <td><a href="internships.php">Computer Science Internship</a></td>
-                                    <td><a href="internships.php">Engineering Internship</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="internships.php">Internship in Mumbai</a></td>
-                                    <td><a href="internships.php">Marketing Internship</a></td>
-                                    <td><a href="internships.php">MBA Internship</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="internships.php">Internship in Delhi</a></td>
-                                    <td><a href="internships.php">Finance Internship</a></td>
-                                    <td><a href="internships.php">Law Internship</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
-                <li class="nav-item dropdown trainings">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Online trainings</a>
-                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                        <table class="table table-striped x-small">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Programming</th>
-                                    <th scope="col">Management and more</th>
-                                    <th scope="col">Core Engineering</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="">Web Development</a></td>
-                                    <td><a href="">Digital Marketing</a></td>
-                                    <td><a href="">Auto Cad</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Android App Development</a></td>
-                                    <td><a href="">Data Science</a></td>
-                                    <td><a href="">Solid Works</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="">Programming with Python</a></td>
-                                    <td><a href="">French language</a></td>
-                                    <td><a href="">Internet of things</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
+
                 <li class="nav-item dropdown">
                     <button style="margin-top: 2%;" onclick="window.location.href='login.php'"
                         class="btn btn-secondary right-margin">Login</button>
+                </li>
+                                <li class="nav-item dropdown">
+                    <button style="margin-top: 2%;color:black" onclick="window.location.href='admin_login.php'"
+                        class="btn btn-secondary right-margin">Admin Login</button>
                 </li>
                 <li class="nav-item dropdown">
                     <!-- <button style="margin-top: 2%;" class="btn btn-secondary ">Register</button> -->

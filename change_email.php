@@ -1,32 +1,16 @@
-<!doctype html>
 <?php
 if(isset($_POST['email'])){
     session_start();
    // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
 include("connection.php");
    
-        $first_name=$_POST['first_name'];
-        $first_name=$_POST['last_name'];
-        $phone=$_POST['phone'];
+
         $email=$_POST['email'];
-        $password=$_POST['password'];
-        $querry="select * from users";
+    
+        $querry='update users set email="'.$email.'" where email="'.$_SESSION['id'].'"';
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
-        $count= mysqli_num_rows($res);
-      $i=0;
-        if($count!=0){
-        while($i<$count)
-        {   $out= mysqli_fetch_array($res)or die(mysqli_errno($con));
-       //checks if user is already registered 
-            if($email==$out['email'])
-        {       header('location: registerEmployer.php?msg=email already exist'); 
-       
-        }
-     $i++;
-        }}
-        $querry='insert into users(first_name,last_name,phone,email,password,is_employer) values("'.$first_name.'","'.$last_name.'","'.$phone.'","'.$email.'","'.$password.'",True)';
-        $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
-header('location: login.php?msg=successfully signed up');}
+
+        header('location: login.php?msg=successfully email changed sign in again! ');}
         
 ?>
 <html lang="en">
@@ -37,7 +21,7 @@ header('location: login.php?msg=successfully signed up');}
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Register as Employer</title>
+    <title>Change email</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 
@@ -83,21 +67,15 @@ header('location: login.php?msg=successfully signed up');}
         <!-- <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <i class="fab fa-invision fa-3x"></i>
         <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
-        <input type="text"  class="form-control" placeholder="First Name" required autofocus id="first_name" name="first_name">
-        <input type="test"  class="form-control" placeholder="Last Name" required id="last_name" name="last_name">
-        <input type="tel" class="form-control" placeholder="10 digit Phone number" required id="phone" name="phone">
-        <input type="email" class="form-control" placeholder="Official Email id" required id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="the username, the @ symbol, and the user's domain name">
-        <input type="password" class="form-control" placeholder="Password" required id="password" name="password" pattern=".{6,}" title="password should be minimum of 6 characters">
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        <a href="login.php">Already have an account ? Log in ></a>
-           <?php if(isset($_GET['msg'])){ echo '<br><p style="color:red">*'.$_GET['msg'].'*</p>';} ?>
+        <input type="text"  class="form-control" placeholder="Enter new email" required autofocus id="email" name="email">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Change Email</button>
+
+
         <p class="mt-5 mb-3 text-muted">&copy; Iniestashala 2020</p>
     </form>
 </body>
 
 </html>
+
+

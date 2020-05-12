@@ -17,8 +17,9 @@ else
             echo "Your session has expired! <a href='registerStudent.php'>sign up here</a>";
 }
         else {
+            include("connection.php");
             if(isset($_POST['city_pre_1'])){
-    $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+   // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
 
    
 
@@ -28,8 +29,9 @@ else
         header('location: internships.php');}
    function load_cities()
       {
+       include("connection.php");
         $opt='';
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+     //   $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry="select * from cities";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $count= mysqli_num_rows($res);
@@ -43,9 +45,9 @@ else
         return $opt;
       }
      function load_jobs()
-      {
+      { include("connection.php");
         $opt='';
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+       // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry="select * from category";
         $res= mysqli_query($con, $querry)or die(mysqli_errno($con));
         $count= mysqli_num_rows($res);

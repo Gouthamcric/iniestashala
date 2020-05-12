@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+include("connection.php");
     $applicant_id=$_GET['applicant_id'];
 session_start();
 if(!isset($_SESSION['id'])){
@@ -17,7 +18,7 @@ else
             echo "Your session has expired! <a href='registerStudent.php'>sign up here</a>";
 }
         else {
-        $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
+       // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $querry='select * from users where email="'.$applicant_id.'"';
         $querry2='select * from application where applicant_id="'.$applicant_id.'"';
         
