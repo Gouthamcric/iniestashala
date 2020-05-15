@@ -37,7 +37,7 @@ include("connection.php");
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Register as Employer</title>
+        <title>internshiparoma|Resgistration_student</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 
@@ -81,11 +81,11 @@ include("connection.php");
 <body class="text-center">
     <form class="form-signin" method="post">
         <!-- <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-        <i class="fab fa-invision fa-3x"></i>
+        <img src="images/INTERNSHIPAROMA-logo.png" style="width: 80px; height: 36px;" alt="">
         <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
-        <input type="text"  class="form-control" placeholder="First Name" required autofocus id="first_name" name="first_name">
+        <input type="text"  class="form-control" placeholder="First Name" required autofocus id="first_name" name="first_name" pattern=".{3,}" title="first name should be minimum of 3 characters">
         <input type="test"  class="form-control" placeholder="Last Name" required id="last_name" name="last_name">
-        <input type="tel" class="form-control" placeholder="10 digit Phone number" required id="phone" name="phone">
+        <input type="tel" class="form-control" placeholder="10 digit Phone number" required id="phone" name="phone" pattern=".{10,}" title="phone should be minimum of 10 characters">
         <input type="email" class="form-control" placeholder="Official Email id" required id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="the username, the @ symbol, and the user's domain name">
         <input type="password" class="form-control" placeholder="Password" required id="password" name="password" pattern=".{6,}" title="password should be minimum of 6 characters">
         <div class="checkbox mb-3">

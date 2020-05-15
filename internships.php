@@ -34,21 +34,8 @@
       }
     
 session_start();
-if(!isset($_SESSION['id'])){
-   
-header('location: login.php?msg=kindly sign in first');
-exit;
-}
 
-else
-{ $now = time();
- if ($now > $_SESSION['expire']) {
-    
-            session_unset();
-             session_destroy();
-            echo "Your session has expired! <a href='index.php'>sign up here</a>";
-}
-        else {
+
            
 ?>
 
@@ -57,7 +44,7 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INIESTASHALA Internships</title>
+        <title>internshiparoma|Internships</title>
 
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -75,6 +62,7 @@ else
 
 
     <link rel="stylesheet" href="internships.css">
+    <link rel="stylesheet" href="style2.css">
 
     <script src="https://kit.fontawesome.com/18dd5346aa.js" crossorigin="anonymous"></script>
 
@@ -82,7 +70,8 @@ else
 
 <body>
     <!-- navbar -->
-<?php include("header.php"); ?>
+    
+<?php if(!isset($_SESSION['id'])){include('header_2.php');} else {include("header.php");} ?>
     <!-- navbar end -->
 
     <!-- body -->
@@ -128,7 +117,7 @@ else
                       <input type="checkbox" name="women_intership" id="women_internship"> <label for="">internships for women</label><br>
                       <input type="checkbox" name="job_offer" id="job_offer"> <label for="">internships with job offer</label><br>
                       <a href="" type="reset">Reset</a>
-                      <button class="btn btn-md btn-primary btn-block"  name="submit" id="submit" onclick="show_result()" >Search</button>
+                      <button class="btn btn-md btn-primary btn-block"  name="submit" id="submit" onclick="show_result('','','')" >Search</button>
                      
                     </div>
                   </div>
@@ -203,35 +192,43 @@ else
   <script>
  
 $(document).ready(function(){
-      
+    var city="";
+    var p="";
+    var job="";
+  
+    <?php if(isset($_REQUEST['city'])){ ?> city="<?php echo $_REQUEST['city'];?>"; <?php } ?>
+            <?php if(isset($_REQUEST['job'])){ ?> job="<?php echo $_REQUEST['job'];?>"; <?php } ?>
+                <?php if(isset($_REQUEST['part_time'])){ ?> p="1"; <?php } ?>
 $("#cities").bsMultiSelect();
 $("#jobs").bsMultiSelect();
 
-  show_result();  
+  show_result(city,job,p);  
 
 
 });
 
 
 
-        function show_result()
+        function show_result(city,job,p)
         {
                         $(document).ready(function(){
 
     
  
-       var jobs = $("#jobs").val().toString();
-       var cities = $("#cities").val().toString();
+       var jobs = $("#jobs").val().toString()+job;
+       var cities = $("#cities").val().toString()+city;
        var work_home=0;
        if(document.getElementById("work_home").checked===true)
        {
            work_home=1;
        }
+      
        var partime=0;
        if(document.getElementById("partime").checked===true)
        {
            partime=1;
        }
+        else if(p==="1"){partime=1;}
        var start_date = document.getElementById("start_date").value;
        var duration = $("#duration").val();
        var women_internship=0;
@@ -268,4 +265,3 @@ $("#jobs").bsMultiSelect();
 
         
 </body>
-<?php  }} ?>

@@ -40,7 +40,7 @@ else{header('location: admin_login.php?msg=Incorrect Credential');}
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Login</title>
+        <title>internshiparoma|Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 

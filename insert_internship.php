@@ -21,6 +21,7 @@ else
             echo "Your session has expired! <a href='registerStudent.php'>sign up here</a>";
 }
         else {
+      /*
  $query='select * from users where job_pre_1="'.$_POST['job'].'" or job_pre_2="'.$_POST['job'].'" or city_pre_1="'.$_POST['location'].'" or city_pre_2="'.$_POST['location'].'" or city_pre_3="'.$_POST['location'].'"'; 
  $res=  mysqli_query($con, $query);
  $count= mysqli_num_rows($res);$i=0;
@@ -54,8 +55,8 @@ $message="";
 
     $i++;         
  }
-            
-            
+     */       
+         
             
             
             

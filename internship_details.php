@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+session_start();
 include("connection.php");
        // $con= mysqli_connect("localhost", "root", "", "db")or die(mysqli_errno($con));
         $id=$_GET['msg'];
@@ -13,7 +14,7 @@ include("connection.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INIESTASHALA Internships</title>
+      <title>internshiparoma|preference</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,15 +28,14 @@ include("connection.php");
             color: rgb(38, 151, 243);
         }
     </style>
+   <link rel="stylesheet" href="style2.css">
 
 </head>
 
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292b2c;">
-        <a class="navbar-brand" style="font-size:x-large;" href="#"><i class="fab fa-invision"></i> INIESTASHALA</a>
-    </nav>
+<?php if(!isset($_SESSION['id'])){include('header_2.php');} else {include("header.php");} ?>
     <!-- navbar end -->
 
     <div class="row justify-content-md-center">

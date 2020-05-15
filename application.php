@@ -34,7 +34,7 @@ else
 <html>
 
 <head>
-    <title>Application</title>
+        <title>internshiparoma|Application</title>
     <link rel="stylesheet" href="application.css">
 </head>
 

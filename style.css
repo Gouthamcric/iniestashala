@@ -4,7 +4,7 @@ body {
 }
 
 .navbar-nav {
-    margin-right: 35%;
+    /* margin-right: 35%; */
 }
 
 .internships, .trainings {
@@ -22,11 +22,12 @@ body {
 } */
 
 .top-container {
+    background-image: url("images/background.jpg");
     padding: 5% 0;
 }
 
 .carousel-item {
-    padding: 3% 18%;
+    padding: 3% 15%;
 }
 
 .black-icon {
@@ -105,4 +106,17 @@ td a {
         max-width:100% !important;
     }
 
+}
+
+/*employer dashboard */
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }

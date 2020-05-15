@@ -43,7 +43,7 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+        <title>internshiparoma|Employer Dashboard</title>
 
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -68,20 +68,28 @@ else
 
 <body>
 
-
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="font-size:x-large;" href="#"><i class="fab fa-invision"></i> INIESTASHALA</a>
-        <ul class="nav nav-pills ml-auto">
-            <li class="nav-item">
+<nav class="navbar navbar-expand-lg" style="background-image: -webkit-linear-gradient(155deg,rgb(104, 184, 177),rgb(230, 229, 224));">
+        <a class="navbar-brand" style="font-size:x-large;" href="#"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 80px; height: 36px;" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav nav-pills ml-auto">
+         <li class="nav-item">
                 <a class="nav-link" href="#dashboard" data-toggle="pill" role="tab" aria-selected="false">Dashboard</a>
             </li>
             <li class="nav-item">
                 <a class="active nav-link" href="#post-internship" data-toggle="pill" role="tab"
                     aria-selected="true">Post Internship</a>
             </li>
-        </ul>
+
+            </ul>
+        </div>
     </nav>
+
+   
+            
 
 
     <div class="tab-content" id="pills-tabContent">

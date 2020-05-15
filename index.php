@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INIESTASHALA</title>
+        <title>internshiparoma</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
@@ -16,65 +16,26 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292b2c;">
-        <a class="navbar-brand" style="font-size:x-large;" href="#"><i class="fab fa-invision"></i> INIESTASHALA</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" style="margin-right: -5px">
 
 
-                <li class="nav-item dropdown">
-                    <button style="margin-top: 2%;" onclick="window.location.href='login.php'"
-                        class="btn btn-secondary right-margin">Login</button>
-                </li>
-                                <li class="nav-item dropdown">
-                    <button style="margin-top: 2%;color:black" onclick="window.location.href='admin_login.php'"
-                        class="btn btn-secondary right-margin">Admin Login</button>
-                </li>
-                <li class="nav-item dropdown">
-                    <!-- <button style="margin-top: 2%;" class="btn btn-secondary ">Register</button> -->
-                    <div style="margin-top: 2%;" class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Register
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="registerStudent.php">As a Student</a>
-                            <a class="dropdown-item" href="registerEmployer.php">As an Employer </a>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-
-
+<?php include("header_2.php"); ?>
     <div class="container-fluid top-container">
-        <h1><i class="fab fa-invision fa-2x"></i></h1>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <span style="padding:2% 3% 4%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 100px; height: 44px;" alt=""></span>
+        <!-- <h1 class="p-2 mx-5" style="border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 100px; height: 44px;" alt=""></h1> -->
+        <div id="carouselExampleControls" class="carousel slide mt-2" data-ride="carousel" data-interval="4000">
             <!-- to handle slide time use attr data-interval see doc on bootstrap carousel options -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <!-- 1 -->
-                    <h2> Go ahead. <span><b>Get an internship</b></span> </h2>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Ex. MBA, Design, Android etc."
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary btn-dark" type="button"
-                                id="button-addon2">🔍</button>
-                        </div>
+                    <div class="text-light" style="background-image: -webkit-linear-gradient(155deg,rgb(73, 173, 165),rgb(230, 229, 224)); padding: 10%; border-radius: 220px 0 220px 0;">
+                        <a href="" class="text-decoration-none text-light"><span style="padding:2%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"> Register as a Student </span></a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <!-- 2 -->
-                    <h2>Learn new things during lockdown and win cash rewards!</h2>
-                    <h6>🥇First - ₹35,000 🥈Second - ₹20,000 🥉Third - ₹10,000</h6>
-                    <button class="btn btn-info">View Contest</button>
+                    <div class="text-light" style="background-image: -webkit-linear-gradient(155deg,rgb(73, 173, 165),rgb(230, 229, 224)); padding: 10%; border-radius: 220px 0 220px 0;">
+                      <a href="" class="text-decoration-none text-light"><span style="padding:2%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"> Register as an Employer </span></a>
+                    </div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -96,7 +57,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Delhi-NCR</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;" src="images/icon_delhi2.jpg"
+                        <a href="internships.php?city=delhi"><img style="width: 100%; height: 100%;" src="images/icon_delhi2.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -105,7 +66,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Banglore</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;"
+                        <a href="internships.php?city=bangalore"><img style="width: 100%; height: 100%;"
                                 src="images/icon_banglore2.jpg" alt=""></a>
                     </div>
                 </div>
@@ -114,7 +75,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="">Mumbai</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;" src="images/mumbai.jpg"
+                        <a href="internships.php?city=mumbai"><img style="width: 100%; height: 100%;" src="images/mumbai.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -123,7 +84,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Kolkata</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;"
+                        <a href="internships.php?city=kolkata"><img style="width: 100%; height: 100%;"
                                 src="images/icon_kolkata2.jpg" alt=""></a>
                     </div>
                 </div>
@@ -132,7 +93,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Gurugram</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;"
+                        <a href="internships.php?city=gurgaon"><img style="width: 100%; height: 100%;"
                                 src="images/icon_gurgurm2.jpg" alt=""></a>
                     </div>
                 </div>
@@ -141,7 +102,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Hydrabad</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;"
+                        <a href="internships.php?city=hyderabad"><img style="width: 100%; height: 100%;"
                                 src="images/icon_hydrabad1.jpg" alt=""></a>
                     </div>
                 </div>
@@ -159,7 +120,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Part-time</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;" src="images/icon_media.jpg"
+                        <a href="internships.php?part_time=1"><img style="width: 100%; height: 100%;" src="images/icon_media.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -168,7 +129,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Engineering</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;" src="images/icon_engg.jpg"
+                        <a href="internships.php?job=engineering"><img style="width: 100%; height: 100%;" src="images/icon_engg.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -177,7 +138,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">NGO</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;" src="images/icon_ngo.jpg"
+                        <a href="internships.php?job=Social Work, Volunteering, Hospitality"><img style="width: 100%; height: 100%;" src="images/icon_ngo.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -186,7 +147,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Design</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;" src="images/icon_design.jpg"
+                        <a href="internships.php?job=Content Writing, Creative Writing,Video Making/Editing,Videography,Graphic Development"><img style="width: 100%; height: 100%;" src="images/icon_design.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -195,7 +156,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Science</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;"
+                        <a href="internships.php?job=science"><img style="width: 100%; height: 100%;"
                                 src="images/icon_science1.jpg" alt=""></a>
                     </div>
                 </div>
@@ -204,7 +165,7 @@
                 <div class="card grey-card">
                     <div class="card-body" style="padding: 0;">
                         <!-- <h5 class="card-title"><a href="internships.php">Media</a></h5> -->
-                        <a href="internships.php"><img style="width: 100%; height: 100%;"
+                        <a href="internships.php?job=acting,Digital Marketing,Journalism"><img style="width: 100%; height: 100%;"
                                 src="images/icon_media1.jpg" alt=""></a>
                     </div>
                 </div>
@@ -222,7 +183,7 @@
         <h4 style="padding: 2% 0;">Iniestashala Trainings</h4>
         <div class="row">
             <div class="col-lg-3">
-                <a href="">
+                <a href="route/web.php">
                     <div class="card">
                         <h5 class="card-header">Web Development</h5>
                         <div class="card-body">
@@ -232,7 +193,7 @@
                 </a>
             </div>
             <div class="col-lg-3">
-                <a href="">
+                <a href="route/python.php">
                     <div class="card">
                         <h5 class="card-header">Python</h5>
                         <div class="card-body">
@@ -242,7 +203,7 @@
                 </a>
             </div>
             <div class="col-lg-3">
-                <a href="">
+                <a href="route/digitalMarketing.php">
                     <div class="card">
                         <h5 class="card-header">Digital Marketing</h5>
                         <div class="card-body">
@@ -252,7 +213,7 @@
                 </a>
             </div>
             <div class="col-lg-3">
-                <a href="">
+                <a href="route/ethical.php">
                     <div class="card">
                         <h5 class="card-header">Ethical Hacking</h5>
                         <div class="card-body">
@@ -262,7 +223,7 @@
                 </a>
             </div>
         </div>
-        <button style="margin-top: 2%;" class="btn btn-info btn-lg">VIEW ALL TRAINING PROGRAMS</button>
+        <a href="training.php" style="margin-top: 2%;" class="btn btn-info btn-lg">VIEW ALL TRAINING PROGRAMS</a>
     </div>
 
     <hr>
@@ -361,13 +322,13 @@
                 <a href="internships.php">
                     <p>Internship in India</p>
                 </a>
-                <a href="internships.php">
+                <a href="internships.php?city=delhi">
                     <p>Internship in Delhi</p>
                 </a>
-                <a href="internships.php">
+                <a href="internships.php?city=mumbai">
                     <p>Internship in Mumbai</p>
                 </a>
-                <a href="internships.php">
+                <a href='internships.php?city=banglore'>
                     <p>Internship in Banglore</p>
                 </a>
             </div>
@@ -388,16 +349,16 @@
             </div>
             <div class="col-lg-3 white-text">
                 <h6><u><b>Online Summer Trainings</b></u></h6>
-                <a href="internships.php">
+                <a href="route/web.php">
                     <p>Web Development</p>
                 </a>
-                <a href="internships.php">
+                <a href="route/android.php">
                     <p>Android App Development</p>
                 </a>
-                <a href="internships.php">
+                <a href="route/python.php">
                     <p>Programming with Python</p>
                 </a>
-                <a href="internships.php">
+                <a href="route/data.php">
                     <p>Data Science</p>
                 </a>
             </div>
@@ -419,7 +380,7 @@
             </div>
         </div>
         <hr>
-        <p>&copy; Iniestashala 2020</p>
+        <p>&copy; Internshiparoma 2020</p>
     </div>
 
 
