@@ -249,7 +249,8 @@ $("#jobs").bsMultiSelect();
                      data:{jobs:jobs,cities:cities,work_home:work_home,partime:partime,start_date:start_date,duration:duration,women_internship:women_internship,job_offer:job_offer},
                      success:function(data)
                       {
-                   
+                     
+           
                      $("#result").html(data);
                   
                       }

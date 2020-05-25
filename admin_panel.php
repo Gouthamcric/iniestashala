@@ -104,7 +104,7 @@ $i5=0;
 
 <body>
 
-    <div class="heading bg-dark text-light"> <h1>Admin Panel</h1>  <a href="logout.php" style="color:red">Logout</a></div>
+    <div class="heading bg-dark text-light"> <h1>Admin Panel</h1>  <a href="logout.php" style="color:red">Logout</a> || <a href="password_change_admin.php" style="color:red">change password</a></div> 
 
     <div class="nav-container container bg-dark text-light mt-2">
         <nav>

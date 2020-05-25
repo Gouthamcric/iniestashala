@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="navbar.css">
     </head>
     <body>
-        <div class="head"  style="background-image: -webkit-linear-gradient(155deg,rgb(104, 184, 177),rgb(230, 229, 224));height: 60px;">
-            <a class="navbar-brand" style="font-size:x-large;" href="#"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 80px; height: 36px;" alt=""></a>
+        <div class="head"  style="height: 80px;background-image: -webkit-linear-gradient(155deg,rgb(104, 184, 177),rgb(230, 229, 224));">
+            <a class="navbar-brand" style="font-size:x-large;" href="index.php"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 80px; height: 36px;" alt=""></a>
 
             <div class="menu" >
             

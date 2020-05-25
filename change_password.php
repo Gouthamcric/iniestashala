@@ -65,14 +65,14 @@ include("connection.php");
 <body class="text-center">
     <form class="form-signin" method="post">
         <!-- <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-        <i class="fab fa-invision fa-3x"></i>
+        <img src="images/INTERNSHIPAROMA-logo.png" style="width: 80px; height: 36px;" alt="">
         <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
         <input type="text"  class="form-control" placeholder="Enter new password" required autofocus id="pass" name="pass">
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
 
 
-        <p class="mt-5 mb-3 text-muted">&copy; Iniestashala 2020</p>
+        <p class="mt-5 mb-3 text-muted">&copy; Internshiparoma 2020</p>
     </form>
 </body>
 

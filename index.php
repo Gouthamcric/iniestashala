@@ -18,7 +18,7 @@
 <body>
 
 
-<?php include("header_2.php"); ?>
+<?php if(!isset($_SESSION['id'])){include('header_2.php');} else {include("header.php");} ?>
     <div class="container-fluid top-container">
         <span style="padding:2% 3% 4%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 100px; height: 44px;" alt=""></span>
         <!-- <h1 class="p-2 mx-5" style="border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"><img src="images/INTERNSHIPAROMA-logo.png" style="width: 100px; height: 44px;" alt=""></h1> -->
@@ -28,13 +28,13 @@
                 <div class="carousel-item active">
                     <!-- 1 -->
                     <div class="text-light" style="background-image: -webkit-linear-gradient(155deg,rgb(73, 173, 165),rgb(230, 229, 224)); padding: 10%; border-radius: 220px 0 220px 0;">
-                        <a href="" class="text-decoration-none text-light"><span style="padding:2%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"> Register as a Student </span></a>
+                        <a href="registerStudent.php" class="text-decoration-none text-light"><span style="padding:2%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"> Register as a Student </span></a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <!-- 2 -->
                     <div class="text-light" style="background-image: -webkit-linear-gradient(155deg,rgb(73, 173, 165),rgb(230, 229, 224)); padding: 10%; border-radius: 220px 0 220px 0;">
-                      <a href="" class="text-decoration-none text-light"><span style="padding:2%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"> Register as an Employer </span></a>
+                        <a href="registerEmployer.php" class="text-decoration-none text-light"><span style="padding:2%; border-radius: 50px; background-image: -webkit-linear-gradient(65deg,rgb(41, 156, 147),rgb(247, 199, 199));"> Register as an Employer </span></a>
                     </div>
                 </div>
             </div>
@@ -234,7 +234,7 @@
         <h3 style="color: #292b2c; padding: 3%;">Top Articles of the month</h3>
         <div class="row">
             <div class="col-lg-6">
-                <a href="">
+                <a href="articles.php">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
@@ -252,7 +252,7 @@
                 </a>
             </div>
             <div class="col-lg-6">
-                <a href="">
+                <a href="resumeguide.php">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
@@ -272,7 +272,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <a href="">
+                <a href="interview.php">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
@@ -289,7 +289,7 @@
                 </a>
             </div>
             <div class="col-lg-6">
-                <a href="">
+                <a href="earnmoney.php">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
@@ -307,7 +307,7 @@
             </div>
         </div>
 
-        <a href="">
+        <a href="articles.php">
             <h5 style="margin-top: 3%;">View more articles ></h5>
         </a>
 
@@ -334,16 +334,16 @@
             </div>
             <div class="col-lg-3 white-text">
                 <h6><u><b>Internships by stream</b></u></h6>
-                <a href="internships.php">
+                <a href="internships.php?job=computer">
                     <p>Computer science Internship</p>
                 </a>
-                <a href="internships.php">
+                <a href="internships.php?job=electrical">
                     <p>Electronics Internship</p>
                 </a>
-                <a href="internships.php">
+                <a href="internships.php?job=civil">
                     <p>Civil Internship</p>
                 </a>
-                <a href="internships.php">
+                <a href="internships.php?job=mechanical">
                     <p>Mechanical Internship</p>
                 </a>
             </div>
@@ -364,16 +364,16 @@
             </div>
             <div class="col-lg-3 white-text">
                 <h6><u><b>About Iniestashala</b></u></h6>
-                <a href="internships.php">
+                <a href="aboutus.php">
                     <p>About us</p>
                 </a>
-                <a href="internships.php">
+                <a href="we_r_hiring.php">
                     <p>We're hiring</p>
                 </a>
-                <a href="internships.php">
+                <a href="hire_intern.php">
                     <p>Hire interns for your company</p>
                 </a>
-                <a href="">
+                <a href="blog.php">
                     <p>Blog</p>
                 </a>
                 <button class="btn btn-dark"><i class="fab fa-google-play"></i>Download</button>

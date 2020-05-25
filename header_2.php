@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <button style="margin-top: 2%;" onclick="window.location.href='login.html'"
+                    <button style="margin-top: 2%;" onclick="window.location.href='login.php'"
                         class="btn btn-dark right-margin">Login</button>
                 </li>
                 <li class="nav-item dropdown">

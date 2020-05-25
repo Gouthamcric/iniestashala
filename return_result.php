@@ -99,6 +99,7 @@ include("connection.php");
   
         $i=0;
         $str='';
+     
         while($i!=$count){$out= mysqli_fetch_array($res)or die(mysqli_errno($con));
        echo '                <div class="card left">
                     <div class="card-header">

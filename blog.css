@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+    padding: 0px;
+} 
+.s1{
+    margin-top: 5%;
+    flex-direction: column;
+    display: flex;
+    padding: 0% 10%;
+    height: 600px;
+}
+.viewer{
+    flex: 5;
+    background-image: url('images/m1.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 1% 10%;
+    display: flex;
+    flex-direction: column-reverse;
+    box-shadow: 0px 0px 6px 3px;
+}
+.htext{
+    padding-top: 5%;
+    padding-left: 3%;
+    height: 25%;
+    text-align: left;
+    font-size: 2rem;
+    font-family: 'Times New Roman';
+    color: rgb(234, 239, 243);
+    background-color: rgba(36, 34, 34, 0.918);
+    
+}
+.sections{
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.items{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 25%;
+    width: 24%;
+    min-width: 20%;
+    display: flex;
+    flex-direction: column-reverse;
+    border: 1px solid black;
+}
+.items:hover{
+    box-shadow: 0px 0px 11px 3px;
+}
+.text{
+    height: max-content;
+    padding: 1% 2% 3% 2%;
+    color: rgb(214, 230, 245);
+    background-color: rgba(36, 34, 34, 0.875);
+    text-align: center;
+}
+
+.divider{
+    margin: 3% 0px;
+    border-top: 5px solid rgb(106, 177, 171);
+    
+}
+.divider>h2{
+    border-radius: 0px 0px 15px 0px;
+    box-shadow: 0px 2px 6px 2px;
+    background-image: -webkit-linear-gradient(125deg,rgb(73, 173, 165),rgb(230, 229, 224));
+    padding: 0.5%;
+    width: max-content;
+}
+.cluster{
+    margin: 2% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cluster>div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.cluster>div>div{
+    margin: 1% 1.5%;min-width: 25%;
+    background-color: antiquewhite;
+    height: 180px;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.cluster>div>div:hover{
+    box-shadow: 1px 0px 7px 2px;
+    transform: scaleX(2);
+    transform: scaleY(1.1);
+    flex-direction: column-reverse;
+}
+.more{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 5%;
+}
+.more>span{
+    padding: 0.5%;
+    margin-right: 10%;
+    background-image: -webkit-linear-gradient(125deg,rgb(73, 173, 165),rgb(230, 229, 224));
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px 0px;
+    cursor: pointer;
+}

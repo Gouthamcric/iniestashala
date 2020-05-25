@@ -84,7 +84,7 @@ else{header('location: admin_login.php?msg=Incorrect Credential');}
 <body class="text-center">
     <form class="form-signin" method="post">
         <!-- <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-        <i class="fab fa-invision fa-3x"></i>
+        <img src="images/INTERNSHIPAROMA-logo.png" style="width: 80px; height: 36px;" alt="">
         <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="text" id="inputEmail" class="form-control" placeholder="userame" required autofocus id="email" name="email" >
@@ -98,7 +98,7 @@ else{header('location: admin_login.php?msg=Incorrect Credential');}
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         <a href="index.php"> Go Back ></a>
         <?php if(isset($_GET['msg'])){ echo '<br><p style="color:red">*'.$_GET['msg'].'*</p>';} ?>
-        <p class="mt-5 mb-3 text-muted">&copy; Iniestashala 2020</p>
+        <p class="mt-5 mb-3 text-muted">&copy; Internshiparoma2020</p>
     </form>
 </body>
 

@@ -90,10 +90,8 @@ else
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="font-size:x-large;" href="index.html"><i class="fab fa-invision"></i> INIESTASHALA</a>
-    </nav>
+<?php if(!isset($_SESSION['id'])){include('header_2.php');} else {include("header.php");} ?>
+    <br>
 
     <div class="container">
         <div class="row justify-content-md-center">
